@@ -12,7 +12,6 @@ import com.me.airpistol.athletic.LatestRecord;
 import java.util.Scanner;
 
 /**
- *
  * @author PC
  */
 public class Airpistol {
@@ -106,7 +105,7 @@ public class Airpistol {
 
     }
 
-    public static void addNewAthlete () {
+    public static void addNewAthlete() {
         int id;
         String fname;
         String lname;
@@ -133,10 +132,10 @@ public class Airpistol {
         System.out.println("last Rank");
         lastRank = input.nextInt();
 
-        Athlete newAthlete = new AthleteBuilder(fname,lname)
+        Athlete newAthlete = new AthleteBuilder(fname, lname)
                 .setId(id)
                 .setNationality(nationality)
-                .setLatestRecord(new LatestRecord(lastScore,lastRank))
+                .setLatestRecord(new LatestRecord(lastScore, lastRank))
                 .build();
         AthleteManager.addAthlete(newAthlete);
     }
@@ -148,7 +147,7 @@ public class Airpistol {
     }
 
     public static void printAllAthletes() {
-        AthleteManager.printAthletes();
+//        AthleteManager.printAthletes();
     }
 
 }

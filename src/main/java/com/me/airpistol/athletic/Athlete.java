@@ -27,6 +27,10 @@ public class Athlete {
         return this.isInRelay;
     }
 
+    public float getScore() {
+        return this.shootingAction.getShootingScore();
+    }
+
     public void setInRelay(int isInRelay) {
         this.isInRelay = isInRelay;
     }
@@ -35,21 +39,25 @@ public class Athlete {
         return this.latestRecord;
     }
 
-    public void shoot(int addingScore) {
-        this.shootingAction.shoot(addingScore);
+    public void shoot(float distance) {
+        this.shootingAction.shoot(distance);
     }
 
-    @Override
-    public String toString() {
-        return "Athlete{" +
-                "id=" + id +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", shooting Score=" + shootingAction.getShootingScore() +
-                ", nationality='" + nationality + '\'' +
-                ", isInRelay=" + isInRelay +
-                ", latestRecord=" + latestRecord +
-                '}';
+    public void setDefaultShootingAction() {
+        this.shootingAction = new ShootingAction();
     }
+
+//    @Override
+//    public String toString() {
+//        return "Athlete{" +
+//                "id=" + id +
+//                ", firstName='" + firstName + '\'' +
+//                ", lastName='" + lastName + '\'' +
+//                ", shooting Score=" + shootingAction.getShootingScore() +
+//                ", nationality='" + nationality + '\'' +
+//                ", isInRelay=" + isInRelay +
+//                ", latestRecord=" + latestRecord +
+//                '}';
+//    }
 }
 

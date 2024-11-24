@@ -43,10 +43,6 @@ public class AthleteBuilder {
         return this;
     }
 
-    public AthleteBuilder setInRelay(int isInRelay) {
-        this.isInRelay = isInRelay;
-        return this;
-    }
 
     public AthleteBuilder setNationality(String nationality) {
         String[] nationalityArray = nationality.split(",");

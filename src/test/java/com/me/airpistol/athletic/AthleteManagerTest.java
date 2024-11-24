@@ -64,6 +64,8 @@ class AthleteManagerTest {
                 .setLatestRecord(new LatestRecord(10, 10))
                 .build());
         manager.removeAthlete(10000);
+        boolean isRemovedFromAthleteBuilder = AthleteBuilder.existingIds.stream().anyMatch(id -> id == 10000);
+        assertFalse(isRemovedFromAthleteBuilder);
         assertFalse(AthleteBuilder.existingIds.stream().anyMatch(id -> id == 10000));
         assertEquals(expected, manager.athletes.size());
     }
@@ -84,7 +86,7 @@ class AthleteManagerTest {
 
     @Test
     void getAthleteGotoNextRound() {
-        for (int i = 0 ; i < 64 ; i++){
+        for (int i = 0; i < 64; i++) {
             manager.addAthlete(new AthleteBuilder("Gia",
                     "Tuong")
                     .setId(10000 + i)
@@ -94,20 +96,20 @@ class AthleteManagerTest {
                     .build());
         }
 
-        for (int i = 0 ; i < 60 ; i++) {
+        for (int i = 0; i < 60; i++) {
             for (int j = 0; j < 64; j++) {
                 if (j < 8) {
                     manager.athletes.get(j).shootingAction.shoot(0.1f + 0.575f * j); // 0 - 0.575 bằng nhau
                 } else if (j < 16) {
-                    manager.athletes.get(j).shootingAction.shoot( (0.8f * j) / 10 + 5.75f);
+                    manager.athletes.get(j).shootingAction.shoot((0.8f * j) / 10 + 5.75f);
                 } else if (j < 24) {
-                    manager.athletes.get(j).shootingAction.shoot( (0.8f * j) / 10 + 13.75f);
+                    manager.athletes.get(j).shootingAction.shoot((0.8f * j) / 10 + 13.75f);
                 } else if (j < 32) {
-                    manager.athletes.get(j).shootingAction.shoot(  (0.8f * j) / 10 + 21.75f);
+                    manager.athletes.get(j).shootingAction.shoot((0.8f * j) / 10 + 21.75f);
                 } else if (j < 40) {
-                    manager.athletes.get(j).shootingAction.shoot(  (0.8f * j) / 10 + 30);
+                    manager.athletes.get(j).shootingAction.shoot((0.8f * j) / 10 + 30);
                 } else if (j < 48) {
-                    manager.athletes.get(j).shootingAction.shoot( (0.8f * j) / 10 + 38.75f);
+                    manager.athletes.get(j).shootingAction.shoot((0.8f * j) / 10 + 38.75f);
                 }
             }
         }
@@ -121,5 +123,10 @@ class AthleteManagerTest {
         assertEquals(624.0f, manager.getAthleteGotoNextRound().get(5).shootingAction.getShootingScore());
         assertEquals(618.0f, manager.getAthleteGotoNextRound().get(6).shootingAction.getShootingScore());
         assertEquals(612.0f, manager.getAthleteGotoNextRound().get(7).shootingAction.getShootingScore());
+    }
+
+    @Test
+    void addAthlete_Null() {
+        assertThrows(IllegalArgumentException.class, () -> manager.addAthlete(null));
     }
 }

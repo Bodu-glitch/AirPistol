@@ -8,9 +8,9 @@ public class RelayManager {
     List<RelayAbstract> relays = new ArrayList<>();
     List<RelayAbstract> records;
 
-    public void printRelayRecord (){
-
-    }
+//    public void printRelayRecord (){
+//
+//    }
 
     public boolean addRelay() {
         int relayNumber = relays.size() + 1;
@@ -19,18 +19,18 @@ public class RelayManager {
             relays.add(new Relays(relayNumber));
             System.out.println("Relay added");
             return true;
-        }else if (relays.size() == 5){
+        } else if (relays.size() == 5) {
             relays.add(new LastRelay(relayNumber));
             System.out.println("Last relay added");
             return true;
-        }else {
+        } else {
             System.err.println("Relay is full");
             return false;
         }
     }
 
     public void removeRelay(int relayNumber) {
-        for (Iterator<RelayAbstract> iterator = relays.iterator(); iterator.hasNext();) {
+        for (Iterator<RelayAbstract> iterator = relays.iterator(); iterator.hasNext(); ) {
             RelayAbstract relay = iterator.next();
             if (relay.relayNumber == relayNumber) {
                 for (Athlete athlete : relay.totalAthletes) {
@@ -47,15 +47,13 @@ public class RelayManager {
     // không dùng for được vì đang chỉnh sửa list
     public void addAthleteToRelay(Athlete athlete) {
         if (athlete == null) {
-            System.err.println("Athlete cannot be null");
-            return;
+            throw new IllegalArgumentException("Athlete cannot be null");
         }
         if (athlete.getIsInRelay() != -1) {
-            System.err.println("Athlete is in relay");
-            return;
+            throw new IllegalArgumentException("Athlete is in relay");
         }
         boolean added = false;
-        for (Iterator<RelayAbstract> iterator = relays.iterator(); iterator.hasNext();) {
+        for (Iterator<RelayAbstract> iterator = relays.iterator(); iterator.hasNext(); ) {
             RelayInterface relay = iterator.next();
             System.out.println(relay.getClass());
             if (!relay.checkIsFull()) {
@@ -91,7 +89,7 @@ public class RelayManager {
             return;
         }
 
-        for (Iterator<RelayAbstract> iterator = relays.iterator(); iterator.hasNext();) {
+        for (Iterator<RelayAbstract> iterator = relays.iterator(); iterator.hasNext(); ) {
             RelayAbstract relay = iterator.next();
             if (relay.relayNumber == relayNumber) {
                 if (relay.checkIsFull()) {
@@ -104,10 +102,6 @@ public class RelayManager {
             }
         }
         System.err.println("Relay not found");
-    }
-
-    public void saveRecord(RelayAbstract record) {
-        records.add(record);
     }
 
 }

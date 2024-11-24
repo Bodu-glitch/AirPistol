@@ -66,7 +66,7 @@ class RelayManagerTest {
     @Test
     void removeRelay_HaveAthlete() {
         relays.addRelay();
-        Athlete newAthlete = new AthleteBuilder("Gia","Tuong").setId(10000).setNationality("Vietnam").setLatestRecord(new LatestRecord(10.10F,10)).build();
+        Athlete newAthlete = new AthleteBuilder("Gia", "Tuong").setId(10000).setNationality("Vietnam").setLatestRecord(new LatestRecord(10.10F, 10)).build();
         relays.addAAthleteToRelay(newAthlete, 1);
         relays.removeRelay(1);
         assertEquals(0, relays.relays.size());
@@ -76,7 +76,7 @@ class RelayManagerTest {
     @Test
     void addAthleteToRelay() {
         for (int i = 0; i < 54; i++) {
-            Athlete newAthlete = new AthleteBuilder("Gia","Tuong").setId(10000 + i).setNationality("Vietnam").setLatestRecord(new LatestRecord(i,i)).build();
+            Athlete newAthlete = new AthleteBuilder("Gia", "Tuong").setId(10000 + i).setNationality("Vietnam").setLatestRecord(new LatestRecord(i, i)).build();
 //            assertFalse(newAthlete.getIsInRelay());
             relays.addAthleteToRelay(newAthlete);
 //            assertTrue(newAthlete.getIsInRelay());
@@ -90,18 +90,18 @@ class RelayManagerTest {
     }
 
     @Test
-    void addAthleteToRelay_NullAthlete(){
+    void addAthleteToRelay_NullAthlete() {
         relays.addRelay();
-        Athlete newAthlete = new AthleteBuilder("Gia","Tuong").setId(10000).setNationality("Vietnam").setLatestRecord(new LatestRecord(10,10 )).build();
+        Athlete newAthlete = new AthleteBuilder("Gia", "Tuong").setId(10000).setNationality("Vietnam").setLatestRecord(new LatestRecord(10, 10)).build();
         relays.addAthleteToRelay(newAthlete);
         relays.addAthleteToRelay(newAthlete);
-        assertEquals(1,relays.relays.get(0).totalAthletes.size());
+        assertEquals(1, relays.relays.get(0).totalAthletes.size());
     }
 
     @Test
-    void addAthleteToRelay_Fail (){
+    void addAthleteToRelay_Fail() {
         for (int i = 0; i < 60; i++) {
-            relays.addAthleteToRelay(new AthleteBuilder("Gia","Tuong").setId(10000 + i).setNationality("Vietnam").setLatestRecord(new LatestRecord(i,i)).build());
+            relays.addAthleteToRelay(new AthleteBuilder("Gia", "Tuong").setId(10000 + i).setNationality("Vietnam").setLatestRecord(new LatestRecord(i, i)).build());
         }
         assertEquals(6, relays.relays.size());
         assertEquals(10, relays.relays.get(0).totalAthletes.size());
@@ -113,46 +113,61 @@ class RelayManagerTest {
     }
 
     @Test
-    void addAthleteToRelayByRelayNumber(){
+    void addAthleteToRelayByRelayNumber() {
         relays.addRelay();
-        Athlete newAthlete = new AthleteBuilder("Gia","Tuong").setId(10000).setNationality("Vietnam").setLatestRecord(new LatestRecord(10,10 )).build();
+        Athlete newAthlete = new AthleteBuilder("Gia", "Tuong").setId(10000).setNationality("Vietnam").setLatestRecord(new LatestRecord(10, 10)).build();
         relays.addAAthleteToRelay(newAthlete, 1);
-        assertEquals(1,newAthlete.getIsInRelay());
+        assertEquals(1, newAthlete.getIsInRelay());
         assertEquals(1, relays.relays.get(0).totalAthletes.size());
     }
 
     @Test
-    void addAthleteToRelayByRelayNumber_Fail(){
+    void addAthleteToRelayByRelayNumber_Fail() {
         relays.addRelay();
-        Athlete newAthlete = new AthleteBuilder("Gia","Tuong").setId(10000).setNationality("Vietnam").setLatestRecord(new LatestRecord(10,10 )).build();
+        Athlete newAthlete = new AthleteBuilder("Gia", "Tuong").setId(10000).setNationality("Vietnam").setLatestRecord(new LatestRecord(10, 10)).build();
         relays.addAAthleteToRelay(newAthlete, 2);
-        assertEquals(-1,newAthlete.getIsInRelay());
+        assertEquals(-1, newAthlete.getIsInRelay());
         assertEquals(0, relays.relays.get(0).totalAthletes.size());
     }
 
     @Test
-    void addAthleteToRelayByRelayNumber_NullAthlete(){
+    void addAthleteToRelayByRelayNumber_NullAthlete() {
         relays.addRelay();
         relays.addAAthleteToRelay(null, 1);
         assertEquals(0, relays.relays.get(0).totalAthletes.size());
     }
 
     @Test
-    void addAthleteToRelayByRelayNumber_AddExistingAthlete(){
+    void addAthleteToRelayByRelayNumber_AddExistingAthlete() {
         relays.addRelay();
-        Athlete newAthlete = new AthleteBuilder("Gia","Tuong").setId(10000).setNationality("Vietnam").setLatestRecord(new LatestRecord(10,10 )).build();
-        relays.addAAthleteToRelay(newAthlete,1);
-        relays.addAAthleteToRelay(newAthlete,1);
-        assertEquals(1,relays.relays.get(0).totalAthletes.size());
+        Athlete newAthlete = new AthleteBuilder("Gia", "Tuong").setId(10000).setNationality("Vietnam").setLatestRecord(new LatestRecord(10, 10)).build();
+        relays.addAAthleteToRelay(newAthlete, 1);
+        relays.addAAthleteToRelay(newAthlete, 1);
+        assertEquals(1, relays.relays.get(0).totalAthletes.size());
     }
 
     @Test
-    void addAthleteToRelayByRelayNumber_FullInRelay(){
+    void addAthleteToRelayByRelayNumber_FullInRelay() {
         relays.addRelay();
         for (int i = 0; i < 11; i++) {
-            Athlete newAthlete = new AthleteBuilder("Gia","Tuong").setId(10000 + i).setNationality("Vietnam").setLatestRecord(new LatestRecord(i,i)).build();
-            relays.addAAthleteToRelay(newAthlete,1);
+            Athlete newAthlete = new AthleteBuilder("Gia", "Tuong").setId(10000 + i).setNationality("Vietnam").setLatestRecord(new LatestRecord(i, i)).build();
+            relays.addAAthleteToRelay(newAthlete, 1);
         }
         assertEquals(10, relays.relays.get(0).totalAthletes.size());
+    }
+
+    @Test
+    void addAtheleToRelay_nullAthlete() {
+        relays.addRelay();
+        assertThrows(IllegalArgumentException.class, () -> relays.addAthleteToRelay(null));
+    }
+
+    @Test
+    void addAthleteToRelay_AlreadyInOtherRelays() {
+        relays.addRelay();
+        relays.addRelay();
+        Athlete newAthlete = new AthleteBuilder("Gia", "Tuong").setId(10000).setNationality("Vietnam").setLatestRecord(new LatestRecord(10, 10)).build();
+        relays.addAAthleteToRelay(newAthlete, 2);
+        assertThrows(IllegalArgumentException.class, () -> relays.addAthleteToRelay(newAthlete));
     }
 }
