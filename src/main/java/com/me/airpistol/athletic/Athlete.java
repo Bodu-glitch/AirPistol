@@ -47,6 +47,14 @@ public class Athlete {
         this.shootingAction = new ShootingAction();
     }
 
+    public Athlete clone() {
+        try {
+            return (Athlete) super.clone(); // Sử dụng clone từ Object
+        } catch (CloneNotSupportedException e) {
+            throw new AssertionError("Cloning not supported", e);
+        }
+    }
+
 //    @Override
 //    public String toString() {
 //        return "Athlete{" +
