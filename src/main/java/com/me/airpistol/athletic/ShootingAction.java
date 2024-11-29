@@ -1,6 +1,6 @@
 package com.me.airpistol.athletic;
 
-public class ShootingAction implements ShootingStrategy {
+public class ShootingAction implements ShootingStrategy, Cloneable {
 
     float shootingScore;
     int currentShots;
@@ -22,6 +22,9 @@ public class ShootingAction implements ShootingStrategy {
         if (distanceFromTarget > radius || distanceFromTarget < border && distanceFromTarget != 0) {
             throw new Exception("Error: It is out of range");
         } else {
+            if (distanceFromTarget == 0) {
+                return 0;
+            }
             //khoảng cách của các vòng trong
             float smallerRadius = (float) Math.round(((radius - border) / 10f) * 100) / 100;
 //            System.out.println("smallerRadius: " + smallerRadius);
@@ -37,6 +40,11 @@ public class ShootingAction implements ShootingStrategy {
             }
             return 0;
         }
+    }
+
+    @Override
+    public void setCurrentShots(int currentShots) {
+        this.currentShots = currentShots;
     }
 
     @Override
@@ -92,5 +100,16 @@ public class ShootingAction implements ShootingStrategy {
     @Override
     public boolean checkCurrentShots() {
         return this.currentShots < 60;
+    }
+
+    @Override
+    public ShootingAction clone() {
+        try {
+            ShootingAction clone = (ShootingAction) super.clone();
+            // TODO: copy mutable state here, so the clone can't change the internals of the original
+            return clone;
+        } catch (CloneNotSupportedException e) {
+            throw new AssertionError();
+        }
     }
 }

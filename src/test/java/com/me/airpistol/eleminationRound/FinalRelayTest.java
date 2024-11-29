@@ -76,6 +76,7 @@ class FinalRelayTest {
     void tearDown() {
         AthleteBuilder.existingIds.clear();
         LatestRecord.existingRecords.clear();
+        finalRelay.seriesNumber = 1;
     }
 
     @Test
@@ -174,18 +175,64 @@ class FinalRelayTest {
     }
 
     @Test
-    void startRelay() {
+    void cloneList() {
+        FinalRelay newfinalRelay = new FinalRelay();
+        assertEquals(0, newfinalRelay.totalAthletes.size());
+        newfinalRelay.totalAthletes = finalRelay.deepCloneList(finalRelay.totalAthletes);
+        assertEquals(8, newfinalRelay.totalAthletes.size());
+        finalRelay.totalAthletes.get(0).setInRelay(4);
+        assertEquals(4, finalRelay.totalAthletes.get(0).getIsInRelay());
+        assertEquals(-1, newfinalRelay.totalAthletes.get(0).getIsInRelay());
     }
 
     @Test
-    void endRelay() {
+    void saveRecord() {
+        finalRelay.saveRecord(1);
+        assertEquals(1, finalRelay.record.size());
     }
 
     @Test
     void startRound() {
+        finalRelay.startRound();
+        for (Athlete athlete : finalRelay.totalAthletes) {
+            assertNotEquals(0, athlete.getScore());
+        }
     }
 
     @Test
-    void endRound() {
+    void startSeries() {
+        finalRelay.startSeries();
+        assertEquals(2, finalRelay.seriesNumber);
+        assertEquals(1, finalRelay.record.size());
     }
+
+    @Test
+    void showLeaderBoard() {
+        finalRelay.startSeries();
+        finalRelay.startSeries();
+        finalRelay.showLeaderBoard();
+    }
+
+    @Test
+    void eliminateAthlete() {
+        for (int i = 1; i < 6; i++) {
+            finalRelay.startSeries();
+        }
+        assertEquals(1, finalRelay.eliminatedAthletes.size());
+        assertEquals(7, finalRelay.totalAthletes.size());
+    }
+
+    @Test
+    void showEliminatedAthletes() {
+        for (int i = 1; i < 6; i++) {
+            finalRelay.startSeries();
+        }
+        finalRelay.showEliminatedAthletes();
+    }
+
+    @Test
+    void runFinal() {
+        finalRelay.runFinal();
+    }
+
 }

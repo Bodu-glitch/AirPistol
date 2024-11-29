@@ -1,9 +1,9 @@
 package com.me.airpistol.eleminationRound;
 
-public interface FinalRelayInterce {
+public interface FinalRelayInterface {
     public void startRound();
 
-    public void endRound();
+    public void startSeries();
 
     public void showEliminatedAthletes();
 
@@ -11,4 +11,7 @@ public interface FinalRelayInterce {
 
     public void showLeaderBoard();
 
+    public void eliminateAthlete();
+
+    public void runFinal();
 }

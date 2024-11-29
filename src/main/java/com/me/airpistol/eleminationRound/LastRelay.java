@@ -66,7 +66,6 @@ public class LastRelay extends RelayAbstract {
         Random random = new Random();
         for (Athlete athlete : this.totalAthletes) {
             athlete.shoot(random.nextFloat(0.1F, 10.0F));
-            ;
         }
     }
 

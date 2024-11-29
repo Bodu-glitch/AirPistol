@@ -9,6 +9,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class ShootingActionTest {
 
     ShootingAction shootingAction;
+
     @BeforeEach
     void setUp() {
         shootingAction = new ShootingAction();
@@ -41,10 +42,17 @@ class ShootingActionTest {
     }
 
     @Test
-    void checkShootingScore_Case10() throws Exception {
-        float expected = 10.5f;
-        float actual = shootingAction.checkShootingScore(2.875f);
+    void calculateScore_distanceEqualToZero() throws Exception {
+        float expected = 0;
+        float actual = shootingAction.calculateScore(0, 0.575f, 1, 5.75f);
         assertEquals(expected, actual);
+    }
+
+    @Test
+    void calculateScore_DistanceOutOfRange() {
+        assertThrows(Exception.class, () -> {
+            shootingAction.calculateScore(22f, 21.75f, 8, 13.75f);
+        });
     }
 
     @Test
@@ -165,5 +173,19 @@ class ShootingActionTest {
         }
 
         assertFalse(shootingAction.checkCurrentShots());
+    }
+
+    @Test
+    void setCurrentShots() {
+        shootingAction.setCurrentShots(10);
+        assertEquals(10, shootingAction.currentShots);
+    }
+
+    @Test
+    void deepClone() {
+        ShootingAction clone = shootingAction.clone();
+        shootingAction.shoot(5.75f);
+        assertNotEquals(shootingAction.currentShots, clone.currentShots);
+        assertNotEquals(shootingAction.shootingScore, clone.shootingScore);
     }
 }

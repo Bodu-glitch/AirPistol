@@ -1,10 +1,10 @@
 package com.me.airpistol.athletic;
 
-public class Athlete {
+public class Athlete implements Cloneable {
     int id;
     String firstName;
     String lastName;
-    ShootingStrategy shootingAction;
+    public ShootingStrategy shootingAction;
     String nationality;
     int isInRelay;
     LatestRecord latestRecord;
@@ -47,25 +47,34 @@ public class Athlete {
         this.shootingAction = new ShootingAction();
     }
 
+    @Override
     public Athlete clone() {
         try {
-            return (Athlete) super.clone(); // Sử dụng clone từ Object
+            Athlete clone = (Athlete) super.clone();
+            clone.shootingAction = this.shootingAction.clone();
+            // TODO: copy mutable state here, so the clone can't change the internals of the original
+            return clone;
         } catch (CloneNotSupportedException e) {
-            throw new AssertionError("Cloning not supported", e);
+            throw new AssertionError();
         }
     }
 
-//    @Override
-//    public String toString() {
-//        return "Athlete{" +
-//                "id=" + id +
-//                ", firstName='" + firstName + '\'' +
-//                ", lastName='" + lastName + '\'' +
-//                ", shooting Score=" + shootingAction.getShootingScore() +
-//                ", nationality='" + nationality + '\'' +
-//                ", isInRelay=" + isInRelay +
-//                ", latestRecord=" + latestRecord +
-//                '}';
-//    }
+    public String getFullName() {
+        return this.firstName + " " + this.lastName;
+    }
+
+
+    @Override
+    public String toString() {
+        return "Athlete{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", shooting Score=" + shootingAction.getShootingScore() +
+                ", nationality='" + nationality + '\'' +
+                ", isInRelay=" + isInRelay +
+                ", latestRankRecord=" + latestRecord.rankRecord +
+                '}';
+    }
 }
 
