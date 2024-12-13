@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="com.me.airpistol.athletic.AthleteBuilderTest" time="0.045" tests="14" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="com.me.airpistol.athletic.ShootingActionTest" time="0.431" tests="23" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="20"/>
     <property name="sun.cpu.isalist" value="amd64"/>
@@ -60,18 +60,27 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="64.0"/>
   </properties>
-  <testcase name="testSetLatestRecord_NegativeInputScore" classname="com.me.airpistol.athletic.AthleteBuilderTest" time="0.012"/>
-  <testcase name="testSetLatestRecord" classname="com.me.airpistol.athletic.AthleteBuilderTest" time="0.002"/>
-  <testcase name="testSetId_ExistedId" classname="com.me.airpistol.athletic.AthleteBuilderTest" time="0.001"/>
-  <testcase name="testBuild_NationalityNotNull" classname="com.me.airpistol.athletic.AthleteBuilderTest" time="0.001"/>
-  <testcase name="testSetId" classname="com.me.airpistol.athletic.AthleteBuilderTest" time="0.001"/>
-  <testcase name="testBuild_LatestRecordNotNull" classname="com.me.airpistol.athletic.AthleteBuilderTest" time="0.001"/>
-  <testcase name="testSetLatestRecord_ExistingRank" classname="com.me.airpistol.athletic.AthleteBuilderTest" time="0.001"/>
-  <testcase name="testSetLatestRecord_RankOutOfRange" classname="com.me.airpistol.athletic.AthleteBuilderTest" time="0.001"/>
-  <testcase name="testSetId_Invalid" classname="com.me.airpistol.athletic.AthleteBuilderTest" time="0.001"/>
-  <testcase name="testSetNationality" classname="com.me.airpistol.athletic.AthleteBuilderTest" time="0"/>
-  <testcase name="testBuild_IdNotNull" classname="com.me.airpistol.athletic.AthleteBuilderTest" time="0"/>
-  <testcase name="testSetLatestRecord_NegativeInputRank" classname="com.me.airpistol.athletic.AthleteBuilderTest" time="0"/>
-  <testcase name="testSetNationality_InvalidCountry" classname="com.me.airpistol.athletic.AthleteBuilderTest" time="0.001"/>
-  <testcase name="testSetNationality_Invalid" classname="com.me.airpistol.athletic.AthleteBuilderTest" time="0"/>
+  <testcase name="deepClone" classname="com.me.airpistol.athletic.ShootingActionTest" time="0"/>
+  <testcase name="calculateScore_distanceEqualToZero" classname="com.me.airpistol.athletic.ShootingActionTest" time="0"/>
+  <testcase name="checkCurrentShots" classname="com.me.airpistol.athletic.ShootingActionTest" time="0"/>
+  <testcase name="shoot_Full" classname="com.me.airpistol.athletic.ShootingActionTest" time="0"/>
+  <testcase name="calculateScore" classname="com.me.airpistol.athletic.ShootingActionTest" time="0"/>
+  <testcase name="calculateScore_distanceSmallerThanSmallerCircle" classname="com.me.airpistol.athletic.ShootingActionTest" time="0"/>
+  <testcase name="checkShootingScore_OutOfRange" classname="com.me.airpistol.athletic.ShootingActionTest" time="0"/>
+  <testcase name="setCurrentShots" classname="com.me.airpistol.athletic.ShootingActionTest" time="0"/>
+  <testcase name="calculateScore_DistanceOutOfRange" classname="com.me.airpistol.athletic.ShootingActionTest" time="0.002"/>
+  <testcase name="shoot_InvalidDistance" classname="com.me.airpistol.athletic.ShootingActionTest" time="0.425"/>
+  <testcase name="shoot" classname="com.me.airpistol.athletic.ShootingActionTest" time="0"/>
+  <testcase name="checkCurrentShots_Full" classname="com.me.airpistol.athletic.ShootingActionTest" time="0"/>
+  <testcase name="calculateScore_distanceLargerThanLargerCircle" classname="com.me.airpistol.athletic.ShootingActionTest" time="0"/>
+  <testcase name="checkShootingScore_Case0" classname="com.me.airpistol.athletic.ShootingActionTest" time="0"/>
+  <testcase name="checkShootingScore_Case1" classname="com.me.airpistol.athletic.ShootingActionTest" time="0"/>
+  <testcase name="checkShootingScore_Case2" classname="com.me.airpistol.athletic.ShootingActionTest" time="0"/>
+  <testcase name="checkShootingScore_Case3" classname="com.me.airpistol.athletic.ShootingActionTest" time="0"/>
+  <testcase name="checkShootingScore_Case4" classname="com.me.airpistol.athletic.ShootingActionTest" time="0"/>
+  <testcase name="checkShootingScore_Case5" classname="com.me.airpistol.athletic.ShootingActionTest" time="0"/>
+  <testcase name="checkShootingScore_Case6" classname="com.me.airpistol.athletic.ShootingActionTest" time="0"/>
+  <testcase name="checkShootingScore_Case7" classname="com.me.airpistol.athletic.ShootingActionTest" time="0"/>
+  <testcase name="checkShootingScore_Case8" classname="com.me.airpistol.athletic.ShootingActionTest" time="0"/>
+  <testcase name="checkShootingScore_Case9" classname="com.me.airpistol.athletic.ShootingActionTest" time="0"/>
 </testsuite>

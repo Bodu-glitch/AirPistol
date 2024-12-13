@@ -98,8 +98,17 @@ public class FinalRelay implements FinalRelayInterface, RelayInterface {
         while (totalAthletes.size() > 1) {
             this.startSeries();
         }
-        this.showLeaderBoard();
+        this.showLastResult();
     }
 
+    public void showLastResult() {
+        List<Athlete> lastResult = new ArrayList<>(record.get(record.size()));
+        eliminatedAthletes.remove(eliminatedAthletes.size() - 1);
+        lastResult.addAll(eliminatedAthletes);
+        lastResult.sort((a1, a2) -> Float.compare(a2.getScore(), a1.getScore()));
+        for (Athlete athlete : lastResult) {
+            System.out.println(athlete.getId() + " " + athlete.getScore());
+        }
+    }
 
 }

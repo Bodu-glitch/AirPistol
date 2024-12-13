@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="com.me.airpistol.athletic.AthleteBuilderTest" time="0.045" tests="14" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="com.me.airpistol.eleminationRound.FinalRelayTest" time="0.062" tests="11" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="20"/>
     <property name="sun.cpu.isalist" value="amd64"/>
@@ -15,9 +15,9 @@
     <property name="user.country" value="US"/>
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk-20\bin"/>
-    <property name="sun.java.command" value="C:\Users\PC\AppData\Local\Temp\surefire38858522645932920\surefirebooter15919487453142773169.jar C:\Users\PC\AppData\Local\Temp\surefire38858522645932920 2024-11-29T09-46-13_201-jvmRun1 surefire7545137703259361943tmp surefire_013268578112754090306tmp"/>
+    <property name="sun.java.command" value="C:\Users\PC\AppData\Local\Temp\surefire9283107505429510676\surefirebooter13074565014846834810.jar C:\Users\PC\AppData\Local\Temp\surefire9283107505429510676 2024-11-29T09-45-36_211-jvmRun1 surefire1133644660370588021tmp surefire_017061334032986287155tmp"/>
     <property name="jdk.debug" value="release"/>
-    <property name="test" value="com.me.airpistol.athletic.**.*Test"/>
+    <property name="test" value="com.me.airpistol.eleminationRound.**.*Test"/>
     <property name="surefire.test.class.path" value="C:\Users\PC\Documents\NetBeansProjects\airpistol\target\test-classes;C:\Users\PC\Documents\NetBeansProjects\airpistol\target\classes;C:\Users\PC\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.9.1\junit-jupiter-engine-5.9.1.jar;C:\Users\PC\.m2\repository\org\junit\platform\junit-platform-engine\1.9.1\junit-platform-engine-1.9.1.jar;C:\Users\PC\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\PC\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.9.1\junit-jupiter-api-5.9.1.jar;C:\Users\PC\.m2\repository\org\opentest4j\opentest4j\1.2.0\opentest4j-1.2.0.jar;C:\Users\PC\.m2\repository\org\junit\platform\junit-platform-commons\1.9.1\junit-platform-commons-1.9.1.jar;"/>
     <property name="sun.cpu.endian" value="little"/>
     <property name="user.home" value="C:\Users\PC"/>
@@ -31,7 +31,7 @@
     <property name="line.separator" value="&#10;"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
-    <property name="surefire.real.class.path" value="C:\Users\PC\AppData\Local\Temp\surefire38858522645932920\surefirebooter15919487453142773169.jar"/>
+    <property name="surefire.real.class.path" value="C:\Users\PC\AppData\Local\Temp\surefire9283107505429510676\surefirebooter13074565014846834810.jar"/>
     <property name="user.script" value=""/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="20.0.2+9-78"/>
@@ -60,18 +60,15 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="64.0"/>
   </properties>
-  <testcase name="testSetLatestRecord_NegativeInputScore" classname="com.me.airpistol.athletic.AthleteBuilderTest" time="0.012"/>
-  <testcase name="testSetLatestRecord" classname="com.me.airpistol.athletic.AthleteBuilderTest" time="0.002"/>
-  <testcase name="testSetId_ExistedId" classname="com.me.airpistol.athletic.AthleteBuilderTest" time="0.001"/>
-  <testcase name="testBuild_NationalityNotNull" classname="com.me.airpistol.athletic.AthleteBuilderTest" time="0.001"/>
-  <testcase name="testSetId" classname="com.me.airpistol.athletic.AthleteBuilderTest" time="0.001"/>
-  <testcase name="testBuild_LatestRecordNotNull" classname="com.me.airpistol.athletic.AthleteBuilderTest" time="0.001"/>
-  <testcase name="testSetLatestRecord_ExistingRank" classname="com.me.airpistol.athletic.AthleteBuilderTest" time="0.001"/>
-  <testcase name="testSetLatestRecord_RankOutOfRange" classname="com.me.airpistol.athletic.AthleteBuilderTest" time="0.001"/>
-  <testcase name="testSetId_Invalid" classname="com.me.airpistol.athletic.AthleteBuilderTest" time="0.001"/>
-  <testcase name="testSetNationality" classname="com.me.airpistol.athletic.AthleteBuilderTest" time="0"/>
-  <testcase name="testBuild_IdNotNull" classname="com.me.airpistol.athletic.AthleteBuilderTest" time="0"/>
-  <testcase name="testSetLatestRecord_NegativeInputRank" classname="com.me.airpistol.athletic.AthleteBuilderTest" time="0"/>
-  <testcase name="testSetNationality_InvalidCountry" classname="com.me.airpistol.athletic.AthleteBuilderTest" time="0.001"/>
-  <testcase name="testSetNationality_Invalid" classname="com.me.airpistol.athletic.AthleteBuilderTest" time="0"/>
+  <testcase name="testAddAthlete_isFull" classname="com.me.airpistol.eleminationRound.FinalRelayTest" time="0.019"/>
+  <testcase name="startSeries" classname="com.me.airpistol.eleminationRound.FinalRelayTest" time="0.001"/>
+  <testcase name="startRound" classname="com.me.airpistol.eleminationRound.FinalRelayTest" time="0.001"/>
+  <testcase name="checkIsFull_False" classname="com.me.airpistol.eleminationRound.FinalRelayTest" time="0"/>
+  <testcase name="cloneList" classname="com.me.airpistol.eleminationRound.FinalRelayTest" time="0"/>
+  <testcase name="runFinal_showLastResult" classname="com.me.airpistol.eleminationRound.FinalRelayTest" time="0.012"/>
+  <testcase name="showLeaderBoard" classname="com.me.airpistol.eleminationRound.FinalRelayTest" time="0.002"/>
+  <testcase name="eliminateAthlete" classname="com.me.airpistol.eleminationRound.FinalRelayTest" time="0.001"/>
+  <testcase name="saveRecord" classname="com.me.airpistol.eleminationRound.FinalRelayTest" time="0.001"/>
+  <testcase name="showEliminatedAthletes" classname="com.me.airpistol.eleminationRound.FinalRelayTest" time="0.008"/>
+  <testcase name="addAthlete" classname="com.me.airpistol.eleminationRound.FinalRelayTest" time="0.002"/>
 </testsuite>

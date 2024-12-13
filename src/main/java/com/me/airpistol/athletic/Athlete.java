@@ -52,7 +52,6 @@ public class Athlete implements Cloneable {
         try {
             Athlete clone = (Athlete) super.clone();
             clone.shootingAction = this.shootingAction.clone();
-            // TODO: copy mutable state here, so the clone can't change the internals of the original
             return clone;
         } catch (CloneNotSupportedException e) {
             throw new AssertionError();

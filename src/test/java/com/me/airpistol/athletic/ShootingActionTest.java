@@ -43,7 +43,7 @@ class ShootingActionTest {
 
     @Test
     void calculateScore_distanceEqualToZero() throws Exception {
-        float expected = 0;
+        float expected = 11;
         float actual = shootingAction.calculateScore(0, 0.575f, 1, 5.75f);
         assertEquals(expected, actual);
     }

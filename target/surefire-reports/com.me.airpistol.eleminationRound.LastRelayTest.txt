@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.me.airpistol.eleminationRound.LastRelayTest
 -------------------------------------------------------------------------------
-Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.038 s - in com.me.airpistol.eleminationRound.LastRelayTest
+Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in com.me.airpistol.eleminationRound.LastRelayTest

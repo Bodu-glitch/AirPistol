@@ -202,8 +202,8 @@ class FinalRelayTest {
     @Test
     void startSeries() {
         finalRelay.startSeries();
-        assertEquals(2, finalRelay.seriesNumber);
         assertEquals(1, finalRelay.record.size());
+        assertEquals(2, finalRelay.seriesNumber);
     }
 
     @Test
@@ -231,7 +231,7 @@ class FinalRelayTest {
     }
 
     @Test
-    void runFinal() {
+    void runFinal_showLastResult() {
         finalRelay.runFinal();
     }
 

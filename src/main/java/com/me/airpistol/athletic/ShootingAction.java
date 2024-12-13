@@ -23,7 +23,7 @@ public class ShootingAction implements ShootingStrategy, Cloneable {
             throw new Exception("Error: It is out of range");
         } else {
             if (distanceFromTarget == 0) {
-                return 0;
+                return 11;
             }
             //khoảng cách của các vòng trong
             float smallerRadius = (float) Math.round(((radius - border) / 10f) * 100) / 100;

@@ -97,4 +97,5 @@ class AthleteTest {
         String data = newAthlete.toString();
         System.out.println(data);
     }
+    
 }
